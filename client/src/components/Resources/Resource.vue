@@ -5,7 +5,7 @@
         <div class="md-chip">
             {{ resource.type }}
         </div>
-        <button type="button" @click="fav">Favorito</button>
+        <button class="fav" type="button" @click="fav"><i class="far fa-star"></i></button>
       <h1>{{ resource.title }}</h1>
       <p class="description">{{ resource.description }}</p>
       <section class="information">
@@ -135,5 +135,12 @@ h1{
   text-align: center;
   color: white;
   margin: 0 8px 0 -12px;
+}
+.fav{
+  outline: none
+}
+.fa-star{
+  font-size: 30px;
+  color: blue;
 }
 </style>

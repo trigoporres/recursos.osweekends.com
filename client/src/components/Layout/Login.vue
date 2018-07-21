@@ -11,7 +11,7 @@
       </button>
     </section>
     <figure v-if="isLogged()">
-      <router-link :to="name">
+      <router-link :to="getUser().displayName">
         <img class="userImg" :src="getUser().photoURL">
       </router-link>
     </figure>
@@ -24,7 +24,8 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   data () {
     return {
-      name: '/' + this.getUser().displayName
+      // revisar route a pagina de usuario si no estamos en la raiz
+      // name: '/' + getUser().displayName funciona, pero al volver a levantar el servidor da error
     }
   },
   created () {

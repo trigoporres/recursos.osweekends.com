@@ -80,7 +80,16 @@ export default {
         return this.$store.state.modals
       },
       set (value) {
-        this.$store.commit('setModal', value)
+        if (this.$store.state.modals === 0) {
+          this.resources = []
+          firebaseService.getResourceFirebase(firebase)
+            .then((querySnapshot) => querySnapshot.forEach((doc) => {
+              this.getResources(doc.data(), doc.id)
+              this.$store.commit('setModal', value)
+            }))
+        } else {
+          this.$store.commit('setModal', value)
+        }
       }
     },
     filteredList () {
